@@ -1,0 +1,5 @@
+Server: chat.freenode.net
+Bot Nick: TrevorBot
+Admin Nick: None
+Channel: #Freenode
+Port: 6667
