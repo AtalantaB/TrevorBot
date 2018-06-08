@@ -1,13 +1,24 @@
 # TrevorBot
 An IRC bot to help people never forget Trevor #TrevorForget. tl;dr. This project is mostly a joke.
-The code found here is a irc bot that by default goes by the name of TrevorBot and by default connect to a room in freenode.
-To stop the bot you will need to edit the bot.py file and change adminName to your own nickname.
+The code found here is a irc bot that by default goes by the name of TrevorBot.
+
+Default config:
+Server: chat.freenode.net
+Bot Nick: TrevorBot
+Admin Nick: None
+Channel: #Freenode
+port: 6667
+
 
 All feedback is welcome!
 
-How to use:
+Usage:
 
-	python bot.py : starts bot
+	python bot.py
+
+Optional:
+
+	python bot.py <Admin Nick> <channels to connect to> <Bot Nick> <Server> <Port>
 
 Common commands:
 	.stop : Makes the bot quit if issued by bot administrator
