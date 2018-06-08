@@ -43,3 +43,4 @@ ChangeLog:
 
 	Added ChangeLog
 	Created Branch 1.1 : Branch will be build of bot that reads from config.txt and uses options for bot.py, will also support arguments provided from cli.
+	Updated to v 1.1 : now accepts arguments from cli, and has editable config.ini file.
