@@ -38,3 +38,8 @@ To come in future updates:
 	More commands
 	Keep track of the amount of time's trevor is mentioned
 	Create a leaderboard for how many times someone has said the word trevor.
+
+ChangeLog:
+
+	Added ChangeLog
+	Created Branch 1.1 : Branch will be build of bot that reads from config.txt and uses options for bot.py, will also support arguments provided from cli.

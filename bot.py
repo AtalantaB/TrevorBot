@@ -2,17 +2,38 @@
 Use instructions under readme.txt'''
 
 from irc import *
-import re, os, random, time, timeit
+import re, os, sys, configparser
 
-channel = '#jk1984' #Channel to connect to.
-port = 6667 #port to connect with
-server = 'chat.freenode.net' #Server to connect to
-nickname = 'TrevorBot' #Nickname of bot
-adminName = 'Dracoliat' #Nickname of admin of bot.
+
+#Used to set default Configuration
+Config = configparser.ConfigParser()
+Config.read('.\\Config.ini')
+
+#Used to set settings for bot.
+def settings(section):
+
+    settingsStorage = {'adminNick':1, 'channel':2, 'botNick':3, 'server':4, 'port':5}
+    options = Config.options(section)
+    for k in settingsStorage.keys():
+        try:
+            settingsStorage[k] = sys.argv[settingsStorage[k]]
+        except:
+            settingsStorage[k] = Config.get(section, k)
+    return settingsStorage
+
+print(os.getcwd())
+settingsDict = settings('default')
+
+server = settingsDict['server']#Server to connect to
+port = int(settingsDict['port']) #port to connect with
+channel = settingsDict['channel'] #Channel to connect to.
+botNick = settingsDict['botNick'] #Nickname of bot
+adminNick = settingsDict['adminNick'] #Nickname of admin of bot.
+
 triggers = {'.stop':0, 'hello':1, 'roach':2, 'cockroach':2, 'trevor':3}
 
 irc = IRC() #setup class
-irc.connect(server, port, channel, nickname) #connect to server
+irc.connect(server, port, channel, botNick) #connect to server
 
 def selfMsg(chan, msg, hst): #called when bot sends a message to a user
     irc.send(chan, msg) #sends message to server
@@ -70,7 +91,7 @@ while 1:
             content = text.split(' ',3)[3][1:]
 
             #Commands
-            if 0 == triggered[0] and name.lower() == adminName.lower(): 
+            if 0 == triggered[0] and name.lower() == adminNick.lower(): 
                 irc.quit()
                 
             #send Hi Name! if it sees the world hello
